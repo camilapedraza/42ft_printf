@@ -6,7 +6,7 @@
 #    By: mpedraza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 16:52:21 by mpedraza          #+#    #+#              #
-#    Updated: 2025/11/19 18:24:35 by mpedraza         ###   ########.fr        #
+#    Updated: 2025/11/19 19:02:09 by mpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@ NAME := libftprintf.a
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
 CPPFLAGS := -I libft
-# LDFLAGS := -L .
-# LDLIBS := -l:$(NAME)
+LDFLAGS := -L .
+LDLIBS := -l:$(NAME)
 
 FTS := ft_printf
 SRCS := $(FTS:%=%.c)
 OBJS := $(SRCS:%.c=%.o)
 
-LIBFT := $(LIBFT_DIR)/$(LIBFT_NAME)
+LIBFT := "$(LIBFT_DIR)/$(LIBFT_NAME)"
 LIBFT_NAME := libft.a
 LIBFT_DIR := libft
 
@@ -30,7 +30,7 @@ LIBFT_DIR := libft
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	ar rcs $@ $(OBJS) $(LIBFT)
+	ar rcs --thin $@ $(OBJS) $(LIBFT_DIR)/$(LIBFT_NAME)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)

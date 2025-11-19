@@ -6,12 +6,12 @@
 /*   By: mpedraza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:47:00 by mpedraza          #+#    #+#             */
-/*   Updated: 2025/11/19 17:55:18 by mpedraza         ###   ########.fr       */
+/*   Updated: 2025/11/19 19:52:32 by mpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
+#include "libft.h"
 
 int	print_char(char ch, int count)
 {
@@ -82,11 +82,8 @@ int	print_hex(int n, char f, int count)
 	return (count);
 }
 
-int	print_ptr(int n, int count)
+int	print_ptr(uintptr_t n, int count)
 {
-	unsigned long	nb;
-
-	nb = (unsigned long)n;
 	if (nb > 15)
 	{
 		count = print_ptr((nb / 16), count);
@@ -128,14 +125,15 @@ static int	parse_str(va_list args, char *str)
 	int	i;
 	int	count;
 
-	i = -1;
+	i = 0;
 	count = 0;
-	while (str[i++])
+	while (str[i])
 	{
 		if (str[i] != '%')
 			count = print_char(str[i], count);
 		else
 			count = parse_spec(str[++i], count, args);
+		i++;
 	}
 	return (count);
 }
@@ -146,8 +144,9 @@ int	ft_printf(const char *f, ...)
 	char	*str;
 	va_list	args;
 
+	count = 0;
 	if (!f || !*f)
-		return (0);
+		return (count);
 	str = ft_strdup(f);
 	if (!str)
 		return (0);
