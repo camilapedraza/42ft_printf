@@ -1,0 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_chr_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpedraza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/18 14:47:00 by mpedraza          #+#    #+#             */
+/*   Updated: 2025/11/19 21:55:16 by mpedraza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+#include "libft.h"
+
+int	print_chr(char chr, int count)
+{
+	write(1, &chr, 1);
+		count++;
+	return (count);
+}
+
+int	print_str(char *str, int count)
+{
+	if (!str)
+		str = "(null)";
+	while (*str)
+		count = print_chr(*(str++), count);
+	return (count);
+}

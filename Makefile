@@ -6,7 +6,7 @@
 #    By: mpedraza <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 16:52:21 by mpedraza          #+#    #+#              #
-#    Updated: 2025/11/19 19:02:09 by mpedraza         ###   ########.fr        #
+#    Updated: 2025/11/19 22:03:15 by mpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CPPFLAGS := -I libft
 LDFLAGS := -L .
 LDLIBS := -l:$(NAME)
 
-FTS := ft_printf
+FTS := ft_printf ft_chr_utils ft_hex_utils ft_int_utils
 SRCS := $(FTS:%=%.c)
 OBJS := $(SRCS:%.c=%.o)
 

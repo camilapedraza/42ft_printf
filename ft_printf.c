@@ -6,95 +6,20 @@
 /*   By: mpedraza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:47:00 by mpedraza          #+#    #+#             */
-/*   Updated: 2025/11/19 19:52:32 by mpedraza         ###   ########.fr       */
+/*   Updated: 2025/11/19 22:08:03 by mpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
-int	print_char(char ch, int count)
+static int	parse_ptr(uintptr_t n, int count)
 {
-	write(1, &ch, 1);
-		count++;
-	return (count);
-}
-
-int	print_string(char *str, int count)
-{
-	while (*str)
-		count = print_char(*(str++), count);
-	return (count);
-}
-
-int	print_number(int n, int count)
-{
-	long	nb;
-
-	nb = (long)n;
-	if (nb < 0)
-	{
-		count = print_char('-', count);
-		nb = -nb;
-	}
-	if (nb > 9)
-	{
-		count = print_number((nb / 10), count);
-		count = print_char((nb % 10 + 48), count);
-	}
-	if (nb < 10)
-		count = print_char((nb + 48), count);
-	return (count);
-}
-
-int	print_unsigned(int n, int count)
-{
-	unsigned int	nb;
-
-	nb = (unsigned int)n;
-	if (nb > 9)
-		count = print_unsigned((nb / 10), count);
-	count = print_char((nb % 10 + 48), count);
-	return (count);
-}
-
-int	print_hex(int n, char f, int count)
-{
-	unsigned int	nb;
-	char			base;
-
-	base = 'a';
-	if (f == 'X')
-		base = 'A';
-	nb = (unsigned int)n;
-	if (nb > 15)
-	{
-		count = print_hex((nb / 16), f, count);
-		count = print_hex((nb % 16), f, count);
-	}
+	if (!n)
+		count = print_str("(nil)", count);
 	else
 	{
-		if (nb < 10)
-			count = print_char((nb + '0'), count);
-		else
-			count = print_char((nb - 10 + base), count);
-	}
-	return (count);
-}
-
-int	print_ptr(uintptr_t n, int count)
-{
-	if (nb > 15)
-	{
-		count = print_ptr((nb / 16), count);
-		count = print_ptr((nb % 16), count);
-	}
-	else
-	{
-		if (nb < 10)
-			count = print_char((nb + '0'), count);
-		else
-			count = print_char((nb - 10 + 'a'), count);
+		count = print_str("0x", count);
+		count = print_ptr(n, count);
 	}
 	return (count);
 }
@@ -102,21 +27,21 @@ int	print_ptr(uintptr_t n, int count)
 static int	parse_spec(char spec, int count, va_list args)
 {
 	if (spec == '%')
-		count = print_char('%', count);
+		count = print_chr('%', count);
 	else if (spec == 'c')
-		count = print_char(va_arg(args, int), count);
+		count = print_chr(va_arg(args, int), count);
 	else if (spec == 's')
-		count = print_string(va_arg(args, char *), count);
+		count = print_str(va_arg(args, char *), count);
 	else if (spec == 'd' || spec == 'i')
-		count = print_number(va_arg(args, int), count);
+		count = print_nbr(va_arg(args, int), count);
 	else if (spec == 'u')
-		count = print_unsigned(va_arg(args, int), count);
+		count = print_uns((unsigned int)va_arg(args, int), count);
 	else if (spec == 'x' || spec == 'X')
 		count = print_hex(va_arg(args, int), spec, count);
 	else if (spec == 'p')
-		count = print_ptr((unsigned long)va_arg(args, void *), count);
+		count = parse_ptr((uintptr_t)va_arg(args, void *), count);
 	else
-		count = print_char(spec, count);
+		count = print_chr(spec, count);
 	return (count);
 }
 
@@ -130,7 +55,7 @@ static int	parse_str(va_list args, char *str)
 	while (str[i])
 	{
 		if (str[i] != '%')
-			count = print_char(str[i], count);
+			count = print_chr(str[i], count);
 		else
 			count = parse_spec(str[++i], count, args);
 		i++;

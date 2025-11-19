@@ -6,7 +6,7 @@
 /*   By: mpedraza <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 14:17:20 by mpedraza          #+#    #+#             */
-/*   Updated: 2025/11/19 19:47:04 by mpedraza         ###   ########.fr       */
+/*   Updated: 2025/11/19 22:06:30 by mpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 
 int	main(void)
 {
-	/*ft_printf("Test single string:\n");
+	return (0);
+}
+/*
+int	main(void)
+{
+	*ft_printf("Test single string:\n");
 	ft_printf("Hi, my name is Camila!");
 	printf("Hi, my name is Camila!");
 	
@@ -42,7 +47,7 @@ int	main(void)
 	ft_printf("X %X\n", 86541);
 	printf("x %x\n", -5689);
 	printf("X %X\n", 86541);
-	*/
+
 
 	int *nbr;
 	int n;
@@ -53,3 +58,4 @@ int	main(void)
     ft_printf("%p\n", nbr);
     printf("%p\n", nbr);
 }
+*/
