@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mpedraza <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mpedraza <mpedraza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 16:52:21 by mpedraza          #+#    #+#              #
-#    Updated: 2025/11/19 22:03:15 by mpedraza         ###   ########.fr        #
+#    Updated: 2025/11/26 17:16:27 by mpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIBFT := "$(LIBFT_DIR)/$(LIBFT_NAME)"
 LIBFT_NAME := libft.a
 LIBFT_DIR := libft
 
-#TEST_SRCS := $(SRCS:%=test_%)
+# TEST_SRCS := $(SRCS:%=test_%)
 
 all: $(NAME)
 
