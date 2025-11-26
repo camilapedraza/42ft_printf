@@ -6,12 +6,11 @@
 /*   By: mpedraza <mpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:47:00 by mpedraza          #+#    #+#             */
-/*   Updated: 2025/11/26 17:16:44 by mpedraza         ###   ########.fr       */
+/*   Updated: 2025/11/26 19:59:15 by mpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 int	print_chr(char chr, int count)
 {

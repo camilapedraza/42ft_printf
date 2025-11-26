@@ -6,7 +6,7 @@
 /*   By: mpedraza <mpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:48:12 by mpedraza          #+#    #+#             */
-/*   Updated: 2025/11/26 17:34:56 by mpedraza         ###   ########.fr       */
+/*   Updated: 2025/11/26 19:58:10 by mpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "libft.h"
+# include <stdint.h>
 
 int	ft_printf(const char *f, ...);
 int	print_chr(char ch, int count);

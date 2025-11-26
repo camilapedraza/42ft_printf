@@ -6,7 +6,7 @@
 /*   By: mpedraza <mpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:47:00 by mpedraza          #+#    #+#             */
-/*   Updated: 2025/11/26 17:34:53 by mpedraza         ###   ########.fr       */
+/*   Updated: 2025/11/26 19:58:53 by mpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,11 @@ int	ft_printf(const char *f, ...)
 	count = 0;
 	if (!f || !*f)
 		return (count);
-	str = ft_strdup(f);
+	str = (char *)f;
 	if (!str)
 		return (0);
 	va_start(args, f);
 	count = parse_str(args, str);
 	va_end(args);
-	free(str);
 	return (count);
 }
