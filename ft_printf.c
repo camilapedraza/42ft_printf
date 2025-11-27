@@ -6,7 +6,7 @@
 /*   By: mpedraza <mpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:47:00 by mpedraza          #+#    #+#             */
-/*   Updated: 2025/11/26 19:58:53 by mpedraza         ###   ########.fr       */
+/*   Updated: 2025/11/27 12:12:14 by mpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_printf(const char *f, ...)
 
 	count = 0;
 	if (!f || !*f)
-		return (count);
+		return (-1);
 	str = (char *)f;
 	if (!str)
 		return (0);
