@@ -6,13 +6,14 @@
 #    By: mpedraza <mpedraza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/18 16:52:21 by mpedraza          #+#    #+#              #
-#    Updated: 2025/11/27 16:10:06 by mpedraza         ###   ########.fr        #
+#    Updated: 2025/11/28 12:32:19 by mpedraza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libftprintf.a
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
+CPPFLAGS := -I .
 
 FTS := ft_printf ft_chr_utils ft_hex_utils ft_int_utils
 SRCS := $(FTS:%=%.c)
