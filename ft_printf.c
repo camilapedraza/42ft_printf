@@ -6,7 +6,7 @@
 /*   By: mpedraza <mpedraza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:47:00 by mpedraza          #+#    #+#             */
-/*   Updated: 2025/11/27 15:44:53 by mpedraza         ###   ########.fr       */
+/*   Updated: 2025/11/28 12:19:12 by mpedraza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ static int	parse_spec(char spec, int count, va_list args)
 		count = print_hex(va_arg(args, int), spec, count);
 	else if (spec == 'p')
 		count = parse_ptr((uintptr_t)va_arg(args, void *), count);
-	else if (!spec)
-		return (-1);
 	else
 	{
 		count = print_chr('%', count);
